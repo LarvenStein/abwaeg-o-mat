@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro/Contra - Schritt 2</title>
+    <link href="/style.css" rel="stylesheet">
+
+</head>
+<body onload="getThese()">
+    <header>
+        <h3>Schritt 2:</h3>
+        <h1>Gewichtung für die Argumente Vergeben</h1>
+        <h3>These: <span id="these"></span></h3>
+    </header>
+    <main>
+        <form>
+            <div class="pro" id="pro">
+                <div class="indicator">
+                <h3>Pro</h3>
+                </div>
+
+            </div>
+            <div class="bar"></div>
+            <div class="con" id="con">
+                <div class="indicator">
+                <h3>Contra</h3>
+
+            </div>
+            </div>
+        </form>
+        
+    </main>
+    <footer>
+        <button id="next-step" data-next="/result" onclick="GenerateSubmitURL('step-2')">Weiter <span class="arrow">⇒</span><span class="circle"></span></button>
+    </footer>
+    <script src="/main.js"></script>
+</body>
+</html>
