@@ -9,7 +9,7 @@ h1 {
 
 form {
     display: flex;
-    top: 500px;
+    top: 250px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -60,6 +60,7 @@ th, td {
 main {
     display: grid;
     place-items: center;
+    height: 100vh;
 }
 
 form p {
@@ -277,6 +278,13 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background: #4e4e4e;
   border-radius: 25px;
+}
+#start {
+    display: flex;
+    position: static;
+    left: 50%;
+    top: 50%;
+    transform: translate(0, 0);
 }
 
 @font-face {
