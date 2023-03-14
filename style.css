@@ -267,6 +267,15 @@ input.enabled.con {
     display: flex;
 }
 
+.print {
+    font-size: x-large;
+    margin: 10px;
+    padding: 7px;
+    max-width: 250px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+
 html::-webkit-scrollbar {
     width: 10px; 
  }
