@@ -286,6 +286,14 @@ html::-webkit-scrollbar-thumb {
     top: 50%;
     transform: translate(0, 0);
 }
+#result {
+display: flex;
+    top: 0;
+    position: static;
+    left: 50%;
+    transform: translateX(0);
+    margin-top: 0;
+}
 
 @font-face {
     font-family: 'Fira Sans';
