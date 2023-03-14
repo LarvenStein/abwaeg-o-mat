@@ -1,5 +1,5 @@
-    var PrintPro;
-    var PrintCon;
+    var PrintPro = '<div class="indicator"><h3>Pro</h3></div>';
+    var PrintCon = '<div class="indicator"><h3>Contra</h3></div>';
 
 function calculateResult() {
     var Proargumentlist = getParameter('p');
@@ -96,8 +96,8 @@ function Share() {
 
 function DoPrint() {
     var buttons = document.getElementById('footer').innerHTML;
-    var OldPro = document.getElementById('pro');
-    var OldCon = document.getElementById('con');
+    var OldPro = document.getElementById('pro').innerHTML;
+    var OldCon = document.getElementById('con').innerHTML;
     document.getElementById('footer').innerHTML = "";
     document.getElementById('pro').innerHTML = PrintPro;
     document.getElementById('con').innerHTML = PrintCon;
