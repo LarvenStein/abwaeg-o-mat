@@ -286,7 +286,7 @@ html::-webkit-scrollbar-thumb {
     top: 50%;
     transform: translate(0, 0);
 }
-#result {
+.result {
 display: flex;
     top: 0;
     position: static;
