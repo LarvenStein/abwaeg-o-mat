@@ -1,3 +1,6 @@
+    var PrintPro;
+    var PrintCon;
+
 function calculateResult() {
     var Proargumentlist = getParameter('p');
     var Proarguments = Proargumentlist.split("◦");
@@ -7,6 +10,8 @@ function calculateResult() {
     var ConArgs = 0;
     var ProWeight = 0;
     var ConWeight = 0;
+    
+
 
     for(var i = 0; i < Proarguments.length; i++){
         if(Proarguments[i].length > 0) {
@@ -15,7 +20,8 @@ function calculateResult() {
             var Argweight = 1 * Number(weight[0]);
             ProCount = Number(ProCount) + Number(Argweight);
             ProArgs = Number(ProArgs) + 1;
-            ProWeight = Number(ProWeight) + Number(Argweight) - 1;    
+            ProWeight = Number(ProWeight) + Number(Argweight) - 1;   
+            PrintPro += '<div class="flex"><p type="text" class="print">'+ weight[1] +'</p></div>';
         }
     }
 
@@ -30,6 +36,8 @@ function calculateResult() {
             ConCount = Number(ConCount) + Number(Argweight);
             ConArgs = Number(ConArgs) + 1;
             ConWeight = Number(ConWeight) + Number(Argweight) - 1;    
+            PrintCon += '<p type="text" class="print">'+ weight[1] +'</p>';
+
         }
     }
 
@@ -88,7 +96,15 @@ function Share() {
 
 function DoPrint() {
     var buttons = document.getElementById('footer').innerHTML;
+    var OldPro = document.getElementById('pro');
+    var OldCon = document.getElementById('con');
     document.getElementById('footer').innerHTML = "";
+    document.getElementById('pro').innerHTML = PrintPro;
+    document.getElementById('con').innerHTML = PrintCon;
+    
     print();
+    
     document.getElementById('footer').innerHTML = buttons;
+    document.getElementById('pro').innerHTML = OldPro;
+    document.getElementById('con').innerHTML = OldCon;
 }
