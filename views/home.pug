@@ -1,0 +1,13 @@
+extends ./base
+include ./elements/buttonIcon
+
+block content
+    main.center
+        form(method="POST" action="/steps/1")
+            h1 Pro/Kontra
+            input(type="text" name="thesis" required placeholder="These")
+            button(type="submit") Weiter 
+                +fancyIcon("⇒")
+    footer 
+        |Made by me
+

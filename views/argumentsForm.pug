@@ -1,0 +1,35 @@
+extends ./base
+include ./elements/buttonIcon
+
+block content 
+    form(action=nextStep method="post") 
+        header 
+            h3 Schritt #{currentStep}:
+            h1 #{debate.thesis}
+            h3 #{title}
+            input(type="text" hidden value=debate.thesis name="thesis")
+        main 
+            div.col 
+                div.pro
+                    h3 Pro
+                    if (debate.proArguments !== undefined)
+                        - for (let argument of debate.proArguments)
+                          div.flex
+                            input.weight( onclick="updateWeight(this)" value=argument.weight || 1 name="pro-w" readonly)
+                            input.locked(type="text" value=argument.argument name="pro" readonly)
+                    if(currentStep == 1)
+                        input.inactive(type="text" onfocus="activateInactiveButton('pro')")
+                div.seperator
+                div.con
+                    h3 Kontra
+                    if (debate.contraArguments !==  undefined)
+                        - for (let argument of debate.contraArguments)
+                          div.flex
+                            input.weight( onclick="updateWeight(this)" value=argument.weight || 1 name="con-w" readonly)
+                            input.locked(type="text" value=argument.argument name="con" readonly)
+                    if(currentStep == 1)
+                        input.inactive(type="text" onfocus="activateInactiveButton('con')")
+        footer 
+            button(type="submit") Weiter
+                +fancyIcon("⇒")
+    script(src="/assets/js/formManager.js") 
