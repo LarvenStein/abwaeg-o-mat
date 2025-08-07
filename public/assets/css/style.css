@@ -234,6 +234,10 @@ a {
     text-decoration: underline;
 }
 
+.tc {
+    text-align: center;
+}
+
 .col div h3 {
         text-align: center;
     border-bottom: 3px solid black;
@@ -241,6 +245,12 @@ a {
     top: 150px;
     background-color: white;
     z-index: 10;
+}
+
+.igroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }
 
 @font-face {
