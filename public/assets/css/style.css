@@ -15,20 +15,24 @@ h1 {
     display: block;
 }
 
+
 main.center {
     display: grid;
     place-items: center;
-    height: 100vh;
 }
 
 header {
     z-index: 10;
     background: #fff;
     text-align: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100vw;
     height: 150px;
+}
+
+.fh {
+    height: 100vh;
 }
 
 footer {
@@ -66,7 +70,7 @@ input {
 
 
 .col {
-    margin-top: 20vh;
+    /*margin-top: 20vh;*/
     margin-bottom: 20vh;
     display: flex;
     justify-content: center;
@@ -171,12 +175,63 @@ button:hover {
     text-align: center;
 }
 
-.weight:hover {
+button:hover {
     transform: scale(90%);
     cursor: pointer;
 }
-.weight:active {
+button:active {
     transform: scale(70%);
+}
+
+table {
+    height: 250px;
+    font-size: xx-large;
+    margin: 25px 0 25px 0;
+}
+
+th {
+    font-weight: 400;
+    font-style: italic;
+}
+
+th, td {
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    margin: 0;
+    padding: 15px;
+}
+#table-con.winner {
+    background-color: rgba(255,0,57,1);
+}
+#table-pro.winner {
+    background-color: rgba(0,255,45,1);
+}
+
+::backdrop {
+  background-color: gray;
+  opacity: 0.75;
+}
+
+.hidden {
+    display: none;
+}
+
+dialog {
+    text-align: center;
+    
+    form input {
+        width: 90%;
+    }
+
+    form p {
+        margin: 0;
+    }
+ 
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 @font-face {

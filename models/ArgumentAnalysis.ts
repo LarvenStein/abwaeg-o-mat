@@ -5,7 +5,7 @@ class ArgumentAnalysis {
     this.position = position;
     this.argumentPoints = argumentPoints;
     this.bonusPoints = bonusPoints;
-    this.totalPoints = this.totalPoints;
+    this.totalPoints = argumentPoints + bonusPoints;
   }
 
   public readonly position: position;
