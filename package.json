@@ -15,11 +15,17 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.ts",
+    "server": "node index.ts"
   },
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "ts-node": "^10.9.2",
+    "uuid": "^11.1.0"
   }
 }

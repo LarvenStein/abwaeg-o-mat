@@ -1,7 +1,11 @@
 import express from "express";
 import { displayHomePage } from "./controllers/home.ts";
 import { displayStepPage } from "./controllers/steps.ts";
-import { displayResultPage } from "./controllers/result.ts";
+import {
+  displayResultPage,
+  displayResultPageFromStorage,
+} from "./controllers/result.ts";
+import { performDebateSave } from "./controllers/save.ts";
 
 const app = express();
 const port = 3000;
@@ -15,7 +19,11 @@ app.get("/", displayHomePage);
 app.post("/steps/:step", displayStepPage);
 
 app.post("/result", displayResultPage);
+app.get("/result/:uuid", displayResultPageFromStorage);
+app.post("/result/:uuid", displayResultPageFromStorage);
+
+app.post("/save", performDebateSave);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App listening on port ${port}`);
 });

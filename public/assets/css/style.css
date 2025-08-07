@@ -175,11 +175,11 @@ button:hover {
     text-align: center;
 }
 
-button:hover {
+button:hover, .weight:hover {
     transform: scale(90%);
     cursor: pointer;
 }
-button:active {
+button:active, .weight:active {
     transform: scale(70%);
 }
 

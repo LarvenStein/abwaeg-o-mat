@@ -2,9 +2,12 @@ extends ./base
 include ./elements/buttonIcon
 include ./elements/argumentsFormWidget
 include ./elements/saveDialog
+include ./elements/shareDialog
 
 block content 
-    +saveDialog(pDebate)
+    if !saved
+        +saveDialog(pDebate)
+    +shareDialog()
     header 
         h3 Das Ergebnis ist:
         h1 #{pDebate.winner} zu #{pDebate.thesis}
@@ -32,8 +35,12 @@ block content
     footer.flex
         button(type="submit" onclick="doPrint()") Ausdrucken
             +fancyIcon("🖨")
-        button(type="submit" onclick="showSaveModal()") Speichern & Teilen
-            +fancyIcon("➦")
+        if saved
+            button(type="submit" onclick="showShareModal()") Teilen
+                +fancyIcon("➦")
+        else
+            button(type="submit" onclick="showSaveModal()") Speichern & Teilen
+                +fancyIcon("➦")
         button(type="submit" onclick="goHome()") Nochmal!
             +fancyIcon("↻")
     script(src="/assets/js/resultHelpers.js") 
