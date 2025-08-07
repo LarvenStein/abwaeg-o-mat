@@ -234,6 +234,15 @@ a {
     text-decoration: underline;
 }
 
+.col div h3 {
+        text-align: center;
+    border-bottom: 3px solid black;
+    position: sticky;
+    top: 150px;
+    background-color: white;
+    z-index: 10;
+}
+
 @font-face {
     font-family: 'Fira Sans';
     font-style: normal;

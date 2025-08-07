@@ -15,3 +15,20 @@ function updateWeight(elem) {
     }
     elem.innerText = `${elem.value}x`;
 }
+
+document.addEventListener('keypress', (e => {
+    if(e.key !== "Enter") {
+        return;
+    }
+    
+    e.preventDefault();
+
+    let side = "pro";
+
+    if(document.activeElement.name === "pro") {
+        side = "con"
+    }
+    
+    document.querySelector(`.${side} input.inactive`).focus();
+    
+}))
