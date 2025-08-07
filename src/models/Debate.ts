@@ -1,4 +1,4 @@
-import { Argument } from "./Argument.ts";
+import { Argument } from "./Argument";
 
 class Debate {
   constructor(

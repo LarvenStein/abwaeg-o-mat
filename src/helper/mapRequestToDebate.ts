@@ -1,5 +1,5 @@
-import { Debate } from "../models/debate.ts";
-import { Argument } from "../models/Argument.ts";
+import { Debate } from "../models/Debate";
+import { Argument } from "../models/Argument";
 
 function mapRequestToDebate(req): Debate {
   function wrapToArray(val) {

@@ -1,7 +1,7 @@
-import { ArgumentAnalysis } from "../models/ArgumentAnalysis.ts";
-import { Debate } from "../models/debate.ts";
-import type { position } from "../models/positionType.ts";
-import { ProcessedDebate } from "../models/ProcessedDebate.ts";
+import { ArgumentAnalysis } from "../models/ArgumentAnalysis";
+import { Debate } from "../models/Debate";
+import type { position } from "../models/positionType";
+import { ProcessedDebate } from "../models/ProcessedDebate";
 
 function processDebate(debate: Debate): ProcessedDebate {
   const proArgumentCount: number = debate.proArguments!.length;

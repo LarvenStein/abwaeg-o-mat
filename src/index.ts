@@ -1,18 +1,18 @@
 import express from "express";
-import { displayHomePage } from "./controllers/home.ts";
-import { displayStepPage } from "./controllers/steps.ts";
+import { displayHomePage } from "./controllers/home";
+import { displayStepPage } from "./controllers/steps";
 import {
   displayResultPage,
   displayResultPageFromStorage,
-} from "./controllers/result.ts";
-import { performDebateSave } from "./controllers/save.ts";
+} from "./controllers/result";
+import { performDebateSave } from "./controllers/save";
 
 const app = express();
 const port = 3000;
 
 app.set("view engine", "pug");
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(`./public`));
+app.use(express.static(`${__dirname}/../public/`));
 
 app.get("/", displayHomePage);
 

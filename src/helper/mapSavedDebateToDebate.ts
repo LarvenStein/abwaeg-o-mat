@@ -1,4 +1,4 @@
-import { Debate } from "../models/Debate.ts";
+import { Debate } from "../models/Debate";
 
 function mapSavedDebateToDebate(data: string): Debate {
   const rawDebate = JSON.parse(data);

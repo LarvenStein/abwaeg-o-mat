@@ -1,7 +1,7 @@
-import { mapRequestToDebate } from "../helper/mapRequestToDebate.ts";
-import { encrypt } from "../helper/encryptionHelper.ts";
+import { mapRequestToDebate } from "../helper/mapRequestToDebate";
+import { encrypt } from "../helper/encryptionHelper";
 import { v4 as uuidv4 } from "uuid";
-import { DebateDatabase } from "../models/DebateDatabase.ts";
+import { DebateDatabase } from "../models/DebateDatabase";
 
 async function performDebateSave(req, res) {
   const debate = mapRequestToDebate(req);
@@ -25,7 +25,7 @@ async function performDebateSave(req, res) {
 
   await savedDebate.save();
 
-  res.redirect(`/result/${savedDebate.uuid}`);
+  res.redirect(`/result/${savedDebate.get("uuid")}`);
 }
 
 export { performDebateSave };

@@ -13,7 +13,7 @@ function goHome() {
 function showSaveModal(close = false) {
     if(close) {
         document.querySelector("dialog.save").close();
-        return
+        return;
     }
     
     document.querySelector("dialog.save").showModal();

@@ -1,6 +1,6 @@
-import { Debate } from "./Debate.ts";
-import type { position } from "./positionType.ts";
-import { ArgumentAnalysis } from "./ArgumentAnalysis.ts";
+import { Debate } from "./Debate";
+import type { position } from "./positionType";
+import { ArgumentAnalysis } from "./ArgumentAnalysis";
 
 class ProcessedDebate extends Debate {
   constructor(

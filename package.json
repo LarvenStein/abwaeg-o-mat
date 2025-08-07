@@ -1,31 +1,37 @@
 {
-  "name": "pro-contra",
+  "name": "abwaeg-o-mat",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/LarvenStein/pro-contra#readme",
+  "homepage": "https://github.com/LarvenStein/abwaeg-o-mat#readme",
   "bugs": {
-    "url": "https://github.com/LarvenStein/pro-contra/issues"
+    "url": "https://github.com/LarvenStein/abwaeg-o-mat/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LarvenStein/pro-contra.git"
+    "url": "git+https://github.com/LarvenStein/abwaeg-o-mat.git"
   },
   "license": "GPL-3.0-only",
   "author": "",
-  "type": "module",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "server": "node index.ts"
+    "dev": "nodemon ./src/index.ts",
+    "minify-assets": "cp -r ./src/public/ ./dist/ && sass ./dist/public/assets/css/:./dist/public/assets/css/ --no-source-map --style compressed && esbuild --minify src/public/assets/js/*.js --outdir=dist/public/assets/js/",
+    "build": "tsc && cp -r ./src/views/ ./dist/",
+    "build-server": "node ./dist/index.js"
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10",
     "pug": "^3.0.3",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7",
-    "ts-node": "^10.9.2",
     "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "esbuild": "0.25.8",
+    "nodemon": "^3.1.10",
+    "sass": "^1.90.0",
+    "ts-node": "^10.9.2"
   }
 }

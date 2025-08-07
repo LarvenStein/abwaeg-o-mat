@@ -1,4 +1,4 @@
-import type { position } from "./positionType.ts";
+import type { position } from "./positionType";
 
 class ArgumentAnalysis {
   constructor(position: position, argumentPoints: number, bonusPoints: number) {

@@ -1,5 +1,5 @@
-import { Debate } from "../models/debate.ts";
-import { mapRequestToDebate } from "../helper/mapRequestToDebate.ts";
+import { Debate } from "../models/Debate";
+import { mapRequestToDebate } from "../helper/mapRequestToDebate";
 
 function displayStepPage(req, res) {
   const debate: Debate = mapRequestToDebate(req);
@@ -21,7 +21,7 @@ function displayStepPage(req, res) {
     res.redirect("/");
   }
 
-  res.render("../views/argumentsForm.pug", {
+  res.render(`${__dirname}/../views/argumentsForm.pug`, {
     currentStep: step,
     debate: debate,
     title: pageTitle,

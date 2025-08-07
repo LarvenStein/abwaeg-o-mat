@@ -1,4 +1,4 @@
-import { DebateDatabase } from "../models/DebateDatabase.ts";
+import { DebateDatabase } from "../models/DebateDatabase";
 
 function checkExpiration(savedDebate): boolean {
   const expiryDate = new Date(savedDebate.expiry);

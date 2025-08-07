@@ -1,5 +1,5 @@
 function displayHomePage(req, res) {
-  res.render("../views/home.pug");
+  res.render(`${__dirname}/../views/home.pug`);
 }
 
 export { displayHomePage };
