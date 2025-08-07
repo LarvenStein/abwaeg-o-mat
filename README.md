@@ -1,12 +1,12 @@
 # Pro/Contra
 
-Ein kleines Projekt, um Pro/Contra Fragen zu lösen.
+Ein kleines Projekt, um Pro/Kontra Fragen zu lösen.
 
-- ~~Ich habe dieses Projekt gebaut um vertrauter mit JavaScript zu werden.~~
-- ~~Das Projekt basiert komplett auf Vanilla JavaScript sowie HTML und CSS~~
-- ~~Die Daten werden mit GET Parametern übertragen ~~
-  - ~~Ich weiß, das ist nicht optimal, aber es soll nur das Frontend genutzt werden und ein teilbarer Link entstehen~~
-- Das Design ist etwas auf [fraenk](https://fraenk.de/) angelehnt, da ich dieses Design klasse finde
+- Um mit Serverseitigem JavaScript vertraut zu werden, habe ich dieses Projekt mit `express.js` und `pug` neu geschrieben.
+- Zwischen den einzelnen Schritten werden die Daten mittels `POST` übergeben
+  - Sollte man sein Ergebnis teilen wollen, hat man die wird dies in einer Datenbank gespeichert
+    - Hierbei lassen sich die Daten mit einem Passwort verschlüsseln und ein Ablaufdatum festlegen.
+- Das Design ist etwas auf [fraenk](https://fraenk.de/) angelehnt, da ich dieses Design schön finde
 
 ### Schritt 0: These eingeben
 
@@ -27,4 +27,4 @@ _Tipp: [TAB] zum neues Argument in Spalte zu erstellen und [ENTER] um die Spalte
 
 ---
 
-Made with &hearts; by LarvenStein
+Made with &hearts; by aikhae
