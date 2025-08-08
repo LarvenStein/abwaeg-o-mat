@@ -15,8 +15,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
-    "minify-assets": "cp -r ./src/public/ ./dist/ && sass ./dist/public/assets/css/:./dist/public/assets/css/ --no-source-map --style compressed && esbuild --minify src/public/assets/js/*.js --outdir=dist/public/assets/js/",
-    "build": "tsc && cp -r ./src/views/ ./dist/",
+    "build": "tsc && cp -r ./src/views/ ./dist/ && gulp",
     "build-server": "node ./dist/index.js"
   },
   "dependencies": {
@@ -29,7 +28,10 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "esbuild": "0.25.8",
+    "esbuild": "^0.25.8",
+    "gulp": "^5.0.1",
+    "gulp-esbuild": "^0.14.1",
+    "gulp-sass": "^6.0.1",
     "nodemon": "^3.1.10",
     "sass": "^1.90.0",
     "ts-node": "^10.9.2"

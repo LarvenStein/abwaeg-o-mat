@@ -12,7 +12,7 @@ const port = 3000;
 
 app.set("view engine", "pug");
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(`${__dirname}/../public/`));
+app.use(express.static(`${__dirname}/public/`));
 
 app.get("/", displayHomePage);
 
