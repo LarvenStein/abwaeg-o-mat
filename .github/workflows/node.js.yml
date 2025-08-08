@@ -62,6 +62,9 @@ jobs:
           password: ${{ secrets.ftppassword }}
           local-dir: "./dist/"
           server-dir: "/"
+          exclude: |
+            **/.git*
+            **/.git*/**
 
   build-and-push-docker-image:
     runs-on: ubuntu-latest
