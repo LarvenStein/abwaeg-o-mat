@@ -5,13 +5,18 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,20 +25,20 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: release-artifact
-        path: './dist'
-  
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifact
+          path: "./dist"
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -47,7 +52,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: release-artifact
-          path: './dist' # This is the path where the artifact will be downloaded to
+          path: "./dist" # This is the path where the artifact will be downloaded to
 
       - name: Sync files to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -55,5 +60,39 @@ jobs:
           server: ${{ secrets.ftpserver }}
           username: ${{ secrets.ftpuser }}
           password: ${{ secrets.ftppassword }}
-          local-dir: './dist/'
-          server-dir: '/'
+          local-dir: "./dist/"
+          server-dir: "/"
+
+  build-and-push-docker-image:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get version from package.json
+        id: get_version
+        run: echo "version=$(node -p -e \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+
+      - name: Log into GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+            type=semver,pattern={{version}},value=${{ steps.get_version.outputs.version }}
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
