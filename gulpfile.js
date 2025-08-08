@@ -47,7 +47,7 @@ function copyViews() {
 
 // Run npm install --only=production in PROD_DEST
 function npmInstall(cb) {
-    exec('npm install --only=production', { cwd: PROD_DEST }, function (err, stdout, stderr) {
+    exec('npm install --omit=dev', { cwd: PROD_DEST }, function (err, stdout, stderr) {
         console.log(stdout);
         console.error(stderr);
         cb(err);
