@@ -39,6 +39,14 @@ function copyPublicAssets() {
         .pipe(gulp.dest(path.join(PROD_DEST, 'public')));
 }
 
+// Copy scripts
+function copyScripts() {
+    return gulp.src([
+            'src/scripts/*'
+        ])
+        .pipe(gulp.dest(path.join(PROD_DEST, 'scripts')));
+}
+
 // Copy views folder
 function copyViews() {
     return gulp.src('src/views/**/*')
@@ -61,7 +69,8 @@ exports.default = gulp.series(
         minifyJs,
         minifyCss,
         copyPublicAssets,
-        copyViews
+        copyViews,
+        copyScripts
     ),
     npmInstall
 );
