@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const gulpEsbuild = require('gulp-esbuild');
-const sass = require('gulp-sass')(require('sass'));
+const cleanCSS = require('gulp-clean-css');
 const path = require('path');
 const { exec } = require('child_process');
 
@@ -22,10 +22,10 @@ function minifyJs() {
         .pipe(gulp.dest(path.join(PROD_DEST, 'public/assets/js')));
 }
 
-// Compile & minify SCSS
+// Minify CSS
 function minifyCss() {
-    return gulp.src('src/public/assets/css/**/*.scss')
-        .pipe(sass({ style: 'compressed' }).on('error', sass.logError))
+    return gulp.src('src/public/assets/css/**/*.css')
+        .pipe(cleanCSS({ compatibility: 'ie8' }))  // Add any compatibility options you need
         .pipe(gulp.dest(path.join(PROD_DEST, 'public/assets/css')));
 }
 
@@ -45,6 +45,14 @@ function copyScripts() {
             'src/scripts/*'
         ])
         .pipe(gulp.dest(path.join(PROD_DEST, 'scripts')));
+}
+
+// Copy locales
+function copyLocales() {
+    return gulp.src([
+            'src/locales/*'
+        ])
+        .pipe(gulp.dest(path.join(PROD_DEST, 'locales')));
 }
 
 // Copy views folder
@@ -70,7 +78,8 @@ exports.default = gulp.series(
         minifyCss,
         copyPublicAssets,
         copyViews,
-        copyScripts
+        copyScripts,
+        copyLocales
     ),
     npmInstall
 );

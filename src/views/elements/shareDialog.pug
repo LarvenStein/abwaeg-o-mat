@@ -3,12 +3,12 @@ include ./buttonIcon
 
 mixin shareDialog()
     dialog.share
-        h2 Diese Argumentation teilen 
+        h2 #{__("shareExtended")}
         form
-            label(for="url") Teile diese Argumentation mit folgendem Link:
+            label(for="url") #{__("shareFormDescription")}
             input(type="text" name="url" readonly)
             br
 
         center
-            button(onclick="copyUrl()") Link Kopieren & Schließen
+            button(onclick="copyUrl()") #{__("copyAndClose")}
                 +fancyIcon("📋")

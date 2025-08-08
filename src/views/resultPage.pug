@@ -9,23 +9,23 @@ block content
         +saveDialog(pDebate)
     +shareDialog()
     header 
-        h3 Das Ergebnis ist:
+        h3 #{__("resultIs")}
         h1 #{pDebate.winner} zu #{pDebate.thesis}
-        h3 Hier nochmal ein kleiner Überblick
+        h3 #{__("hereIsAOverview")}
     main.center
         table
             tr  
                 th 
-                th Argumente 
-                th Gewichtungspunkte 
-                th Gesamtpunkte 
+                th #{__("arguments")} 
+                th #{__("weightPoints")}  
+                th #{__("totalPoints")}  
             tr#table-pro.collapse(class= pDebate.winner == "Pro" ? "winner" : "")
-                td Pro 
+                td #{__("pro")} 
                 td #{pDebate.proAnalysis.argumentPoints}
                 td #{pDebate.proAnalysis.bonusPoints}
                 td #{pDebate.proAnalysis.totalPoints}
             tr#table-con.collapse(class= pDebate.winner == "Kontra" ? "winner" : "")
-                td Kontra
+                td #{__("con")}
                 td #{pDebate.conAnalysis.argumentPoints}
                 td #{pDebate.conAnalysis.bonusPoints}
                 td #{pDebate.conAnalysis.totalPoints}
@@ -33,14 +33,14 @@ block content
             +argumentsFormWidget(pDebate)
             
     footer.flex
-        button(type="submit" onclick="doPrint()") Ausdrucken
+        button(type="submit" onclick="doPrint()") #{__("print")}
             +fancyIcon("🖨")
         if saved
-            button(type="submit" onclick="showShareModal()") Teilen
+            button(type="submit" onclick="showShareModal()") #{__("share")}
                 +fancyIcon("➦")
         else
-            button(type="submit" onclick="showSaveModal()") Speichern & Teilen
+            button(type="submit" onclick="showSaveModal()") #{__("saveAndShare")}
                 +fancyIcon("➦")
-        button(type="submit" onclick="goHome()") Nochmal!
+        button(type="submit" onclick="goHome()") #{__("again")}!
             +fancyIcon("↻")
     script(src="/assets/js/resultHelpers.js") 

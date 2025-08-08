@@ -19,8 +19,10 @@
     "build-server": "node ./dist/index.js"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "crypto-js": "^4.2.0",
     "express": "^5.1.0",
+    "i18n": "^0.15.1",
     "pug": "^3.0.3",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7",
@@ -30,10 +32,9 @@
     "@types/express": "^5.0.3",
     "esbuild": "^0.25.8",
     "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
     "gulp-esbuild": "^0.14.1",
-    "gulp-sass": "^6.0.1",
     "nodemon": "^3.1.10",
-    "sass": "^1.90.0",
     "ts-node": "^10.9.2"
   }
 }

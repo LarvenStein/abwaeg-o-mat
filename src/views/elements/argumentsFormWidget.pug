@@ -1,7 +1,7 @@
 mixin argumentsFormWidget(debate)
     div.col 
         div.pro
-            h3 Pro
+            h3 #{__("pro")}
             if (debate.proArguments !== undefined)
                 - for (let argument of debate.proArguments)
                   div.flex
@@ -11,7 +11,7 @@ mixin argumentsFormWidget(debate)
                 input.inactive(type="text" onfocus="activateInactiveButton('pro')")
         div.seperator
         div.con
-            h3 Kontra
+            h3 #{__("con")}
             if (debate.contraArguments !==  undefined)
                 - for (let argument of debate.contraArguments)
                   div.flex

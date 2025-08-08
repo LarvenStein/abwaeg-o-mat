@@ -5,13 +5,13 @@ include ./elements/argumentsFormWidget
 block content 
     form(action=nextStep method="post") 
         header 
-            h3 Schritt #{currentStep}:
+            h3 #{__("step")} #{currentStep}:
             h1 #{debate.thesis}
             h3 #{title}
             input(type="text" hidden value=debate.thesis name="thesis")
         main 
             +argumentsFormWidget(debate)
         footer 
-            button(type="submit") Weiter
+            button(type="submit") #{__("continue")}
                 +fancyIcon("⇒")
     script(src="/assets/js/formManager.js") 

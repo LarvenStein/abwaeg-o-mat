@@ -6,9 +6,7 @@ function displayStepPage(req, res) {
   const step: number = req.params.step;
 
   const pageTitle: string =
-    step == 1
-      ? "Pro und Contra Argumente eintragen"
-      : "Gewichtung für die Argumente Vergeben";
+    step == 1 ? res.__("step1Desc") : res.__("step2Desc");
 
   // Calculating next step
   let nextStep: string = "/steps/2";
