@@ -1,0 +1,39 @@
+{
+  "name": "abwaeg-o-mat",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/LarvenStein/abwaeg-o-mat#readme",
+  "bugs": {
+    "url": "https://github.com/LarvenStein/abwaeg-o-mat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarvenStein/abwaeg-o-mat.git"
+  },
+  "license": "GPL-3.0-only",
+  "author": "",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "nodemon ./src/index.ts",
+    "build": "tsc && cp -r ./src/views/ ./dist/ && gulp",
+    "build-server": "node ./dist/index.js"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "express": "^5.1.0",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "esbuild": "^0.25.8",
+    "gulp": "^5.0.1",
+    "gulp-esbuild": "^0.14.1",
+    "gulp-sass": "^6.0.1",
+    "nodemon": "^3.1.10",
+    "sass": "^1.90.0",
+    "ts-node": "^10.9.2"
+  }
+}

@@ -1,0 +1,46 @@
+extends ./base
+include ./elements/buttonIcon
+include ./elements/argumentsFormWidget
+include ./elements/saveDialog
+include ./elements/shareDialog
+
+block content 
+    if !saved
+        +saveDialog(pDebate)
+    +shareDialog()
+    header 
+        h3 Das Ergebnis ist:
+        h1 #{pDebate.winner} zu #{pDebate.thesis}
+        h3 Hier nochmal ein kleiner Überblick
+    main.center
+        table
+            tr  
+                th 
+                th Argumente 
+                th Gewichtungspunkte 
+                th Gesamtpunkte 
+            tr#table-pro.collapse(class= pDebate.winner == "Pro" ? "winner" : "")
+                td Pro 
+                td #{pDebate.proAnalysis.argumentPoints}
+                td #{pDebate.proAnalysis.bonusPoints}
+                td #{pDebate.proAnalysis.totalPoints}
+            tr#table-con.collapse(class= pDebate.winner == "Kontra" ? "winner" : "")
+                td Kontra
+                td #{pDebate.conAnalysis.argumentPoints}
+                td #{pDebate.conAnalysis.bonusPoints}
+                td #{pDebate.conAnalysis.totalPoints}
+        form(method="POST" action="/save")
+            +argumentsFormWidget(pDebate)
+            
+    footer.flex
+        button(type="submit" onclick="doPrint()") Ausdrucken
+            +fancyIcon("🖨")
+        if saved
+            button(type="submit" onclick="showShareModal()") Teilen
+                +fancyIcon("➦")
+        else
+            button(type="submit" onclick="showSaveModal()") Speichern & Teilen
+                +fancyIcon("➦")
+        button(type="submit" onclick="goHome()") Nochmal!
+            +fancyIcon("↻")
+    script(src="/assets/js/resultHelpers.js") 

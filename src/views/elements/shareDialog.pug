@@ -1,0 +1,14 @@
+include ./argumentsFormWidget
+include ./buttonIcon
+
+mixin shareDialog()
+    dialog.share
+        h2 Diese Argumentation teilen 
+        form
+            label(for="url") Teile diese Argumentation mit folgendem Link:
+            input(type="text" name="url" readonly)
+            br
+
+        center
+            button(onclick="copyUrl()") Link Kopieren & Schließen
+                +fancyIcon("📋")
