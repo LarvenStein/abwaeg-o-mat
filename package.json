@@ -17,7 +17,7 @@
     "dev": "nodemon ./src/index.ts",
     "build": "tsc && cp -r ./src/views/ ./dist/ && gulp",
     "build-server": "node ./dist/index.js",
-    "clean-db": "node ./dist/scripts/cleanDatabase.cjs"
+    "clean-db": "node ./scripts/cleanDatabase.cjs"
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
