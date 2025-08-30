@@ -102,7 +102,7 @@ _Tipp:_ Mit `[TAB]` ein neues Argument in der Spalte erstellen, mit `[ENTER]` zu
 
 ## Alte version
 
-Sollten dir die neuerungen, welche ich vorgenommen habe, nicht gefallen kannst du gerne noch den alten zustand des Projekts im [legacy-Branch](https://github.com/LarvenStein/abwaeg-o-mat/tree/legacy) und auf [pro-con.steinlarve.de](https://pro-con.steinlarve.de/) verwenden.
+Sollten dir die neuerungen, welche ich vorgenommen habe, nicht gefallen kannst du gerne noch den alten zustand des Projekts im [legacy-Branch](https://github.com/LarvenStein/abwaeg-o-mat/tree/legacy) und auf [GH Pages](https://larvenstein.github.io/abwaeg-o-mat/) verwenden.
 
 ## Lizenz
 
